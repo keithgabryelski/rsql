@@ -12,11 +12,11 @@ module LexicalParser
     end
 
     def token
-      if ReservedKeywordToken::KEYWORDS.include?(@token)
+      if ReservedKeywordToken::KEYWORDS.include?(@token.upcase)
         return ReservedKeywordToken.new(@token)
-      elsif NonReservedKeywordToken::KEYWORDS.include?(@token)
+      elsif NonReservedKeywordToken::KEYWORDS.include?(@token.upcase)
         return NonReservedKeywordToken.new(@token)
-      elsif OperatorToken::KEYWORDS.include?(@token)
+      elsif OperatorToken::KEYWORDS.include?(@token.upcase)
         return OperatorToken.new(@token)
       else
         return IdentifierToken.new(@token)
